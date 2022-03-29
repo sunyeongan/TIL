@@ -1,0 +1,8 @@
+import java.util.Comparator;
+
+public static class WithDate implements Comparator<Book>{
+	public int compare(Book b1, Book b2) {
+		return b1.getYYYY() - b2.getYYYY();
+	}
+
+}

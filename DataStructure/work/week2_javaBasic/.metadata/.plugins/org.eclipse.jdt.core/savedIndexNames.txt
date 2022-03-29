@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+/Users/anseon-yeong/수업/2022-1/자료구조/2주차실습/.metadata/.plugins/org.eclipse.jdt.core
+660192786.index
+2888586291.index
+1779816851.index

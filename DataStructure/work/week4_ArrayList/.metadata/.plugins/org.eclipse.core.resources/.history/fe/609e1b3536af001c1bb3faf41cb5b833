@@ -1,0 +1,74 @@
+import java.util.NoSuchElementException;
+
+public class ArrrListPoly<E> extends ArrList {
+	
+	private E a[]; //리스트의 항목등을 저장할 배열 
+	private int highesDegree;
+	
+	
+	public ArrrListPoly() {
+		
+		
+	}
+	
+	
+	public void setPoly(int k, int arr[]) {
+		for(int i = 0; i<=k; i++) {
+			insert(arr[i]);
+		}
+		
+	}
+	
+	
+	public int getHighestDegree() {
+		
+		return highesDegree;
+	}
+	
+	
+	public ArrrListPoly sumPoly(ArrrListPoly p) {
+		
+		
+		int s1 = getHighestDegree();
+		int s2 = p.getHighestDegree();
+		int final_size = 0;
+		
+		
+		if (s1 > s2)  {
+			final_size = s1;
+			for (int i = 1; i<(s1-s2)+1; i++) {
+				p.resize(final_size);
+				
+				
+			}
+		}else {
+			final_size = s2;
+			for(int j = 0; j <(s2-s1)+1; j++) {
+				this.resize(final_size);
+				
+				
+				
+			}
+		}
+		
+		System.out.println(p.getHighestDegree());
+		
+		int []  arr_sum = new int[final_size-1];
+		
+		for (int i = 0; i < final_size-1; i++) {
+				
+				//System.out.println(this.peek(i));
+				System.out.println(p.peek(i));
+				//arr_sum[i] = (int) this.peek(i)+(int) p.peek(i);
+				//System.out.println(arr_sum[i]);
+				//this.insert(arr_sum[i],i);
+			
+		}
+		
+		return this;
+		
+		
+	}
+	
+
+}

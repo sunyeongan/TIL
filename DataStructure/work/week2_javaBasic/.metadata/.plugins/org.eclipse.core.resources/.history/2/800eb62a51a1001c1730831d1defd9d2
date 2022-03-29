@@ -1,0 +1,43 @@
+
+public class FindPath {
+	int cursor = 0;
+	
+	
+
+	public static void main(String[] args) {
+		int [][] map1 = {{0,100,0},
+						{100,10,0},
+						{10,0,0,}};
+		
+		int [][] map2 = {{0,1000,0},
+						{100,10,0},
+						{10,0,0,}};
+
+	}
+	int nROW = 3;
+	int nCOL = 3;
+	
+	int startY = 2, startX = 0;
+	int finishY = 0, finish = 2;
+	
+	public int findPath(int X, int Y) {
+		
+		if(X < 0 || X >= nROW || Y < 0 || Y >= nCOL) {
+			return 0;
+		}
+		if(Map[X][Y] != 0){//no path!
+			return 0;
+		}
+		else if(X == nROW-1 && Y == nCOL-1) //현재위치가 출구라
+			return 1;
+		}else{
+			if(findPath(X-1,Y) || findPath(X,Y-1) || findPath(X+1,Y) ||
+					findPath(X,Y+1)) {
+				
+			}
+			
+		return 1;
+		
+	}
+
+}

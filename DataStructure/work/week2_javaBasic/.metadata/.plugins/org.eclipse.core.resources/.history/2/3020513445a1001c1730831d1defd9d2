@@ -1,0 +1,32 @@
+import java.util.Comparator;
+
+
+public class Book {
+	
+	public static final Comparator<Book> WITH_NAME = new WithName();
+	public static final Comparator<Book> WITH_SERIAL = new WithSerial();
+	public static final Comparator<Book> WITH_DATE = new WithDate();
+	
+	private String title;
+	private int serial;
+	private int yyyy;
+	private int mm;
+	private int dd;
+	
+	public Book(String TitleIn, int SerialIn, int YYYY, int MM, int DD) {
+		title = TitleIn;
+		serial = SerialIn;
+		yyyy = YYYY;
+		mm = MM;
+		dd = DD;
+	}
+	
+	public String getTitle() {return title;}
+	public int getSerial() {return serial;}
+	public int getYYYY() { return yyyy;}
+	public int getMM() {return mm;}
+	public int getDD() {return dd;}
+
+}
+
+

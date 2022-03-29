@@ -1,0 +1,28 @@
+import java.util.NoSuchElementException;
+
+public class ArrList <E>{
+	
+	private E a[]; //리스트의 항목등을 저장할 배열 
+	private int size; // 리스트 항목의 수 
+	
+	public ArrList() {
+		a = (E[]) new Object[1];//최초로 1개의 원소를 가진 배열
+		//new E[1] 같이 제네릭 타입을 new키워드로 객체 생성 불가
+		//so Object는 모든 클래스의 부모 클래스 이므로 Object로 배열
+		//선언뒤에 E[] 형변환 
+		
+		size = 0; // 리스트 항목수 0으로 초기
+	}
+	
+	public E peek(int k) {//k번째 항목을 리
+		if ( size == 0 || k >= size)
+			throw new NoSuchElementException();
+		return a[k];
+	}
+	
+	public boolean isEmpty() {
+		if (size == 0) return true;
+		return false;
+	}
+
+}

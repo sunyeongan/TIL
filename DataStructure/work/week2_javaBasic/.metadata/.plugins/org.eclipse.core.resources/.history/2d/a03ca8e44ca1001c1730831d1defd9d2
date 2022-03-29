@@ -1,0 +1,15 @@
+
+public class FindPath {
+
+	public static void main(String[] args) {
+		int [][] map1 = {{0,100,0},
+						{100,10,0},
+						{10,0,0,}};
+		
+		int [][] map2 = {{0,1000,0},
+						{100,10,0},
+						{10,0,0,}};
+
+	}
+
+}

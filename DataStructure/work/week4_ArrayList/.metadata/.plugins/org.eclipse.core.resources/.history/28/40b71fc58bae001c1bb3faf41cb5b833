@@ -1,0 +1,21 @@
+
+public class ArrListPolyTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ArrrListPoly p1 = new ArrrListPoly();
+		
+		int[] poly1 = {9,0,-3,0,5};
+		int p1highestDegree = poly1.length-1;
+		p1.setPoly(p1highestDegree, poly1);
+		System.out.print(p1.peek(1));
+		//printPolyEq(p1,1);
+		
+		
+		
+	}
+	
+	
+
+}

@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class Integer3Plus {
+
+	public static void main(String[] args) {
+		int[] Arr = new int[100];
+		int n;
+		int temp;
+		int n1 = 0,n2 = 0,n3 = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("입력 : ");
+		n = sc.nextInt();
+		
+		for (int i = 0; i<Arr.length; i++) {
+			Arr[i] = i;
+			System.out.println(Arr[i]);
+		}
+		for (int i = 0; i<n; i++) {
+			temp = n;
+			n1 = Arr[i];
+			n2 = Arr[i+1];
+			n3 = Arr[i+2];
+			
+			if(n1+n2+n3 == n) {
+				break;
+			}
+		}
+		System.out.print("출력 : n1 : " + n1 + " n2 : " +n2 +" n3 : " + n3);
+
+	}
+
+}

@@ -1,0 +1,8 @@
+import java.util.Comparator;
+
+public class WithDate {
+	public int compare(Book b1, Book b2) {
+		return b1.yyyy - b2.g
+	}
+
+}

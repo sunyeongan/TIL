@@ -1,0 +1,71 @@
+import java.util.NoSuchElementException;
+
+public class ArrList <E>{
+	
+	private E a[]; //리스트의 항목등을 저장할 배열 
+	private int size; // 리스트 항목의 수 
+	
+	public ArrList() {
+		a = (E[]) new Object[1];//최초로 1개의 원소를 가진 배열
+		//new E[1] 같이 제네릭 타입을 new키워드로 객체 생성 불가
+		//so Object는 모든 클래스의 부모 클래스 이므로 Object로 배열
+		//선언뒤에 E[] 형변환 
+		
+		size = 0; // 리스트 항목수 0으로 초기
+	}
+	
+	public E peek(int k) {//k번째 항목을 리
+		if ( size == 0 || k >= size)
+			throw new NoSuchElementException();
+		return a[k];
+	}
+	
+	public boolean isEmpty() {//배열에 들어있는 항목 수가 0인지 확
+		if (size == 0) return true;
+		return false;
+	}
+	
+	public void insertLast(E newItem) { // 가장 뒤에 새 항목 삽입 
+		if (size == a.length)//배열에 빈공간이 없다
+			resize(2*a.length);// 배열의 크기 2배로 확
+		a[size++] = newItem;//새 항목 삽입 
+	}
+	
+	public void insert(E newItem, int k) {//새 항목을 k-1번째 항목 다음에 삽입 
+		if (size == a.length)//배열에 빈공간이 없으
+			resize(2*a.length);// 배열 크기 2배로 확
+		for(int i = size-1; i >= k; i--) a[i+1] = a[i];// 한 칸씩 뒤로 이
+		a[k] = newItem;
+		size++;
+	}
+	
+	public void insert(E newItem) {// 'insert' 메소드 호출시 2번째 인자를 제공하지 않으
+		insertLast(newItem);// insertLast와 같이 동
+	}
+	
+	public void resize(int newSize) {//배열의 크기 조절 
+		Object[] t = new Object[newSize];//newSize크기의 새로운 배열 t
+		for(int i = 0; i < size; i++)
+			t[i] = a[i]; //배열 a를 배열 t로 복사 
+		a = (E[]) t;// 배열 t를 배열 a로 복
+	}
+	
+	public E delete(int k) {
+		if(isEmpty()) throw new NoSuchElementException();
+		E item = a[k]; //리턴하기 위해 임시저장 
+		for(int i = k; i < size-1; i++) a[i] = a[i+1];//한 칸씩 앞으로 이동 
+			size--;
+			if(size > 0 && size <= a.length/4)//배열의 1/4이하만 사용된다면 
+				resize(a.length/2);//배열을 1/2로 축소 
+			return item;
+	}
+	
+	public void print() {
+		for(int i = 0; i < a.length; i++) {
+			if(i < size) System.out.printf(a[i] + "\t");
+			else System.out.printf("null\t");
+		}
+		System.out.println();
+	}
+
+}

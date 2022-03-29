@@ -1,0 +1,68 @@
+
+public class FindPath {
+	static final int LEFT=1000;
+	static final int RIGHT=100;
+	static final int UP=10;
+	static final int DOWN=1;
+	static final int NOPATH=0;
+	
+	
+
+	public static void main(String[] args) {
+		int [][] map1 = {{0,100,0},
+						{100,10,0},
+						{10,0,0,}};
+		
+		int [][] map2 = {{0,1000,0},
+						{100,10,0},
+						{10,0,0,}};
+
+	
+	int nROW = 3;
+	int nCOL = 3;
+	
+	int startY = 2, startX = 0;
+	int finishY = 0, finishX = 2;
+	
+	if(findPath(map1,startY ,startX,finishY,finishX,nROW,nCOL)==1)
+		System.out.println("Found a path!");
+	else 
+		System.out.println("There is no path");
+	
+	if (findPath(map2,startY ,startX,finishY,finishX,nROW,nCOL)==1)
+		System.out.println("Found a path!");
+	else 
+		System.out.println("There is no path");
+}
+	
+	public static int findPath(int Map[][],int curY, int curX, int endY, int endX, 
+			int nROW, int nCOL) {
+		
+		if(curX==endX && curY == endY)
+			return 1;
+		if(curX < 0 || curX >= nCOL)
+			return 0;
+		if(curY < 0 || curY >= nROW)
+			return 0;
+		
+		int visit = Map[curY][curX];
+		
+		if(visit==LEFT)
+			if(findPath(Map,curY,curX-1, endY, endX, nROW, nCOL) == 1)
+				return 1;
+		if(visit==RIGHT)
+			if(findPath(Map,curY,curX+1, endY, endX, nROW, nCOL) == 1)
+				return 1;
+		if(visit==UP)
+			if(findPath(Map,curY-1,curX, endY, endX, nROW, nCOL) == 1)
+				return 1;
+		if(visit==DOWN)
+			if(findPath(Map,curY+1,curX, endY, endX, nROW, nCOL) == 1)
+				return 1;
+		if(visit==NOPATH) 
+			return 0;
+		else
+			return 0;
+	}
+	
+}
