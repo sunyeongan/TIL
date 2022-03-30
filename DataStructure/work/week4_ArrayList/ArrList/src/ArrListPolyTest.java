@@ -4,7 +4,7 @@ public class ArrListPolyTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		ArrrListPoly<Integer> p1 = new ArrrListPoly<Integer>();
+		ArrrListPoly p1 = new ArrrListPoly();
 		
 		int[] poly1 = {9,0,-3,0,5};
 		int p1highestDegree = poly1.length-1;
@@ -12,14 +12,14 @@ public class ArrListPolyTest {
 		//System.out.print(
 		printPolyEq(p1,1);
 		
-		ArrrListPoly<Integer> p2 = new ArrrListPoly<Integer>();
+		ArrrListPoly p2 = new ArrrListPoly();
 		int[] poly2 = {2,0,4};
 		int p2highestDegree = poly2.length-1;
 		p2.setPoly(p2highestDegree, poly2);
 		//System.out.print(
 		printPolyEq(p2,3);
 		
-		ArrrListPoly<Integer> p3 = p1.sumPoly(p2);
+		ArrrListPoly p3 = p1.sumPoly(p2);
 		printPolyEq(p3,1);
 		
 	}
