@@ -3,8 +3,8 @@ import java.util.NoSuchElementException;
 
 public class ListQueue <E>{
 	
-	private Node<E> front, rear;
-	private int size;
+	public Node<E> front, rear;
+	public int size;
 	public ListQueue() {
 		front = rear = null;
 		size = 0;
