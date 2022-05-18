@@ -1,5 +1,8 @@
 package BST;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BST <Key extends Comparable<Key>, Value>{
 	
 	int ind = 0;
@@ -9,6 +12,9 @@ public class BST <Key extends Comparable<Key>, Value>{
 	public Node getRoot() {return root;}
 	public BST(Key newId, Value newName) {
 		root = new Node(newId, newName);
+	}
+	public BST() {
+		
 	}
 	
 	public Value get(Key k) { return get(root, k);}
@@ -108,12 +114,25 @@ public class BST <Key extends Comparable<Key>, Value>{
 		
 	}
 	
+	private Node max(Node n)
+	{
+		if(n.getRight()==null) return n;
+		return max(n.getRight());
+	}
+	
+	public Key max() {
+		if(root == null) return null;
+		return (Key) max(root).getKey();
+	}
+	
 	public void deleteMax() { //최대의 키값을 가지는 노드 삭제하기 
 		
 		if(root==null) System.out.println("empty 트리 ");
 		else root = deleteMax(root); 
 		
 	}
+	
+	
 	private Node deleteMax(Node n) {
 		
 		if (n.getRight()==null) return n.getLeft(); //오른쪽 자식 이 null이면 현재 노드의 왼쪽  자식의 레퍼런스 리턴 
@@ -121,19 +140,55 @@ public class BST <Key extends Comparable<Key>, Value>{
 		return n;
 	}
 	
-	public Key kthSmallest(int k) {
-		
-		
-		kthSmallest(root);
-		return (Key)(Object) arr[(int) k];
+	public Key kthSmallest(int k) // start 
+	{
+		return kthSmallest(root,k); 
 	}
 	
-	private void kthSmallest(Node n) {
+	public Key kthSmallest(Node n,int k) 
+	{
+		int num = kthSmallest(n.getLeft()); //작은 값을 찾기 위해 왼쪽으로 이동 
 		
-		kthSmallest(n.getLeft());
+		if(num == k) // 같으면 키값 return 
+			return (Key) n.getKey();
+		if(num > k) //k번째 값이 더 작다면 왼쪽으로 이동 
+			return kthSmallest(n.getLeft(),k);
+		if(num < k) //k번째 값이 더 크다면 오른쪽으로 이동 
+			return kthSmallest(n.getRight(),k-num-1);
+		return null;
+	}
+	
+	public int kthSmallest(Node n) 
+	{
+		if (n ==null) {return 0;}
+		return kthSmallest(n.getLeft())+kthSmallest(n.getRight())+1;
+	}
+	
+	public void setRoot(Node newRoot) {
 		
-		arr[ind++] = (int) min();
-		kthSmallest(n.getRight());
+		root = newRoot;
+		
+	}
+	public boolean checkBST() {
+		
+		return checkBST(root, min(root), max(root)); 
+	}
+	
+	public boolean checkBST(Node n, Node min, Node max){
+		
+		
+		if(n == null)      {return true;}
+		
+		int low = n.getKey().compareTo(min.getKey());
+		int hi  = n.getKey().compareTo(max.getKey());
+		if(low<0 || hi >0) {return false;}//노드의 최댓값과 최솟값을 지정한 후 이 사이에 있다면 참, 아니면 거짓 
+		
+		if(!checkBST(n.getLeft(),min,n)  // 왼쪽 노드로 이동 할 때에는 n이 max 로 이동 해야함 
+				|| !checkBST(n.getRight(),n ,max)) {return false;} // 오른쪽 노드로 이동할 때에는 n이 min으로 이동 해야함  
+		
+		return true;
+
+		
 	}
 
 }
