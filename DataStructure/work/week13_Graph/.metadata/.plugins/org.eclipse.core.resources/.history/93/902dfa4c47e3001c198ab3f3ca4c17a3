@@ -1,0 +1,17 @@
+package Graph;
+
+import java.util.*;
+
+public class AdjListGraphExt extends AdjListGraph{
+
+	public AdjListGraphExt(int N) {
+		
+		super(N);
+		
+	}
+	
+	private List<Edge>[] adjListReverse; //역방향 그래프 
+	private List<Edge>[] adjList; //그래프 
+	
+
+}

@@ -1,0 +1,14 @@
+package Graph;
+
+public class AdjListGraphTest {
+
+	public static void main(String[] args) {
+		
+		
+		AdjListGraph alg = new AdjListGraph();
+		
+		alg.printGraph();
+
+	}
+
+}

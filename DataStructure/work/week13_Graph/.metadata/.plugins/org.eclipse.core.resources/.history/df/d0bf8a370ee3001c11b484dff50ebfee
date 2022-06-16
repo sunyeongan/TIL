@@ -1,0 +1,17 @@
+package Graph;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class DFS_Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int n = 10;
+		List<Edge>[] list = new LinkedList[n+1];
+		DFS dfs = new DFS(null);
+
+	}
+
+}

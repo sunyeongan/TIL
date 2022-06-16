@@ -1,0 +1,17 @@
+package Graph;
+
+import java.util.LinkedList;
+
+public class AdjListGraphTest {
+
+	public static void main(String[] args) {		
+		
+		int N = 4;
+		AdjListGraph alg = new AdjListGraph(N);
+		
+		
+		alg.printGraph();
+
+	}
+
+}

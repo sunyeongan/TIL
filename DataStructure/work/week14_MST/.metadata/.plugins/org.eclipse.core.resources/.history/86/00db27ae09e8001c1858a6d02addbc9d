@@ -1,0 +1,6 @@
+package MST;
+import java.util.*;
+
+public class AdjList {
+
+}

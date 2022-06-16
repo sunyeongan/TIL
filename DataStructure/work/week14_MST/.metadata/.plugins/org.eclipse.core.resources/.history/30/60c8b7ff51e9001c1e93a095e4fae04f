@@ -1,0 +1,88 @@
+package MST;
+
+import java.util.List;
+
+public class PrimMST {
+	
+	
+	int N;// 그래프 정점 수 
+	List<Edge>[] graph;
+	int weight_sum = 0; //가중치 합 계산 
+	
+	int [] D2 = new int[N];
+	int [] prev2 = new int[N];
+	
+	public PrimMST(List<Edge>[] adjList) {
+		
+		N = adjList.length;
+		graph = adjList;
+	}
+	
+	public int[] mst(int s) {// s 는 시작 정점 
+		
+		boolean[] visited = new boolean[N]; //방문된 정점은 true로 
+		int [] D = new int[N]; //각 정점의 가중치 배열 
+		int [] previous = new int[N];//최소 신장트리의 간선으로 확정될 때 간선의 다른 쪽의 끝점 
+		
+		for (int i = 0; i < N; i++) {
+			visited[i] = false;
+			previous[i] = -1;
+			D[i] = Integer.MAX_VALUE; // D[i]를 최댓값으로 초기화 
+		}
+		
+		previous[s] = 0; //시작 정점 s의 관련 정보 초기화 
+		D[s] = 0;
+	
+		for(int k = 0; k < N; k++) { //방문한 정점들의 D 원소들 중에서 가장 최솟값을 가지는 정점 minVertex 찾기 
+			
+			//MST에 포함 안되어 있고 MST와 인접한 간선 중에 D값이 최소인 간선 및 해당 정점 (minVertex) 찾기 
+			int minVertex = -1;
+			int min = Integer.MAX_VALUE;
+			
+			for(int j = 0; j < N; j++) {
+				if((!visited[j]) && (D[j] < min)) {
+					min = D[j];
+					minVertex = j;
+					
+				}
+			}
+			visited[minVertex] = true;
+			
+			for(Edge i : graph[minVertex]) { //minVertex에 인접한 각 정점의 D의 원소 갱신 
+				if(!visited[i.adjvertex]) { //MST에 아직 포함 안된 정점이라면 
+					int currentDist = D[i.adjvertex];
+					int newDist = i.weight;
+							
+					if(newDist < currentDist) {
+						D[i.adjvertex] = newDist;
+						previous[i.adjvertex] = minVertex;
+								
+					} 
+				}
+			
+			}
+		
+			
+			
+		}
+			
+			
+
+		System.out.println("최소신장트리 간선 : ");
+		for(int i = 0; i < previous.length; i++) {
+			if(i==s && previous[i] == 0)
+				continue;
+			System.out.print("(" + i + "," + previous[i] + ")");
+		}
+		System.out.print("\n최소신장트리의 간선 가중치 합 = ");
+		for (int value : D) {
+			weight_sum += value;
+		}
+		System.out.println(weight_sum);
+		return previous; // MST 간선정보 리턴 
+		
+	}
+	
+	
+	
+}

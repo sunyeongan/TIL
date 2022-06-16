@@ -1,0 +1,14 @@
+package MST;
+
+public class MyGraphTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int N = 6; //정점의 개수 
+		
+		AdjList al = new AdjList(N);
+
+	}
+
+}

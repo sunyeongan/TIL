@@ -1,0 +1,27 @@
+package Graph;
+import java.util.*;
+
+public class Edge {
+	
+	int adjvertex; // 간선의 다른쪽 정점 
+	List<Edge>[] adjList = new List[N];
+	
+	public Edge(int v) {
+		
+		adjvertex = v;
+	}
+	
+	for(int i = 0; i < N; i++) {
+		
+		adjList[i] = new LinkedList<>();
+		
+		for(int j = 0; j < N; j++) {
+			if(/*정점 i와  j사이에 간선이 존재하면 */) {
+				Edge e = new Edge(j);
+				adjList[i].add(e);
+			}
+		}
+	}
+	
+
+}

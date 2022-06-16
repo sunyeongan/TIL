@@ -1,0 +1,52 @@
+package MST;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class MyGraph {
+	
+	
+	int N;// 그래프 정점 수 
+	List<Edge>[] graph;
+	
+	public MyGraph() {
+		
+		super();
+		
+	}
+	
+	public static int[][] getAdMatrixFromAdjList(List<Edge>[] lst){ //인접리스트 -> 인접행렬 
+		
+		int [][] arr = new int [lst.length][lst.length];
+		
+		for(int i = 0; i < lst.length; i++) { //index for
+			
+			for(int j = 0 ; j < lst[i].size(); j++) { // item for 
+				
+				arr[i][j] = lst[i].get(j).weight;
+				
+			}
+			
+		}
+		return arr;
+		
+	}
+	
+	public void print(List<Edge>[] lst) { //인접리스트 출력 
+		
+		System.out.println("Graph (AdjList)");
+		
+		for(int i = 0; i < lst.length; i++) {
+			
+			System.out.print("[" + i + "]");
+			//System.out.print("lst[1].size :" +  lst[1].size());
+			for(int j = 0; j < lst[i].size(); j++) {
+				System.out.print(" => " + lst[i].get(j).adjvertex + "(" + lst[i].get(j).weight + ")");
+			}
+			
+			System.out.println();
+			
+		}
+	}
+
+}

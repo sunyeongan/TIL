@@ -1,0 +1,24 @@
+package Graph;
+
+public class AdjListGraphExtTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int n = 9;
+		AdjListGraphExt alge = new AdjListGraphExt(n);
+		
+		alge.put(0, 2); alge.put(0, 1);
+		alge.put(1, 3); alge.put(1, 0);
+		alge.put(2, 3); alge.put(2, 0);
+		alge.put(3, 9); alge.put(3, 8); alge.put(3, 2); alge.put(3, 1);
+		alge.put(4, 5);
+		alge.put(5, 7); alge.put(5, 6); alge.put(5, 4);
+		alge.put(6, 7); alge.put(6, 5); 
+		alge.put(7, 6); alge.put(7, 5);
+		alge.put(8, 3); 
+		alge.put(9, 3); 
+
+	}
+
+}

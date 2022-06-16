@@ -1,0 +1,16 @@
+package MST;
+
+import java.util.List;
+
+public class DijkstraSP {
+	
+	public int N;
+	List<Edge> [] graph;
+	public int[] previous; //최단 경로상 이전 정점을 기록하기 위해서 
+	public DijkstraSP (List<Edge> [] adjList) {
+		N = adjList.length;
+		previous = new int[N];
+		graph = adjList;
+	}
+
+}

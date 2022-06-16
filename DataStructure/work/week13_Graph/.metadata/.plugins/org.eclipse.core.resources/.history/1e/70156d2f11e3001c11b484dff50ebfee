@@ -1,0 +1,10 @@
+package Graph;
+import java.util.*;
+
+public class TopologicalSort {
+
+	int N;
+	boolean[] visited;		 // DFS 수행 중 방문여부 체크
+	List<Integer>[] adjList; //인접리스트 형태의 입력 그래프 
+	List<Integer> sequence; // 위상 정렬 순서를 담을 리스트 
+}

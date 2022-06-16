@@ -1,0 +1,16 @@
+package MST;
+
+import java.util.List;
+
+public class DijkstraSP {
+	
+	public int N;
+	List<Edge> [] graph;
+	public int[] previous;
+	public DijkstraSP (List<Edge> [] adjList) {
+		N = adjList.length;
+		previous = new int[N];
+		graph = adjList;
+	}
+
+}

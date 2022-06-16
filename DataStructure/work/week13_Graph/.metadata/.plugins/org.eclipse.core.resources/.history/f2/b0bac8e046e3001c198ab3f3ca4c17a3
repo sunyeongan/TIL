@@ -1,0 +1,11 @@
+package Graph;
+
+public class AdjListGraphExt extends AdjListGraph{
+
+	public AdjListGraphExt(int N) {
+		
+		super(N);
+		
+	}
+
+}

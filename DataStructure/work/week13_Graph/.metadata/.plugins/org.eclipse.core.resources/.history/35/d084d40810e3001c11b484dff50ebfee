@@ -1,0 +1,17 @@
+package Graph;
+import java.util.*;
+
+public class BFS {
+	
+	int N;
+	List<Edge>[] graph;
+	private boolean[] visited;
+	public BFS(List<Edge>[] adjList) {
+		N = adjList.length;
+		visited = new boolean [N];
+		graph = adjList;
+		visited = new boolean [N];
+		
+	}
+
+}

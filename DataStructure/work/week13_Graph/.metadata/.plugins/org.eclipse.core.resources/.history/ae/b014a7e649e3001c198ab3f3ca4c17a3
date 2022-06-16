@@ -1,0 +1,13 @@
+package Graph;
+
+public class AdjListGraphExtTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int n;
+		AdjListGraphExt alge = new AdjListGraphExt(n);
+
+	}
+
+}

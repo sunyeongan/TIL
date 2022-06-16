@@ -1,0 +1,7 @@
+package Graph;
+
+public class Edge {
+	
+	int adjvertex; // 간선의 다른쪽 정점 
+
+}

@@ -1,0 +1,12 @@
+package MST;
+
+public class PrimTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		PrimMST pm = new PrimMST();
+
+	}
+
+}

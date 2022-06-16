@@ -1,0 +1,79 @@
+package Graph;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class AdjListGraph {
+	
+	private LinkedList<Edge>[] adjList;
+	private int N = 4;
+	public AdjListGraph() {
+		super();
+		adjList = new LinkedList[N+1];
+		
+		for(int i = 0; i < N+1; i++) {
+			adjList[i] = new LinkedList();
+		}
+		buildGraph();
+	}
+	
+	
+	
+	private void buildGraph() {
+		
+		
+		Edge e = new Edge(1);
+		adjList[0].add(0,e);
+		
+		Edge e2 = new Edge(2);
+		adjList[0].add(1,e2);
+		
+		
+		Edge e3 = new Edge(0);
+		adjList[1].add(0,e3);
+		
+		Edge e4 = new Edge(2);
+		adjList[1].add(1,e4);
+		
+		Edge e5 = new Edge(3);
+		adjList[1].add(2,e5);
+		
+		Edge e6 = new Edge(0);
+		adjList[2].add(0,e6);
+		
+		Edge e7 = new Edge(1);
+		adjList[2].add(1,e7);
+		
+		Edge e8 = new Edge(3);
+		adjList[2].add(2,e8);
+		
+		Edge e9 = new Edge(1);
+		adjList[3].add(0,e9);
+		
+		Edge e10 = new Edge(2);
+		adjList[3].add(1,e10);
+		
+		
+	}
+	
+	public void printGraph() {
+		
+		
+		System.out.println("Graph (AdjList)");
+		
+		StringBuilder sb = new StringBuilder();
+		
+		for(int i = 0; i < adjList.length; i++) {
+			
+			sb.append(i);
+			
+			for(Edge v : adjList[i]) {
+				sb.append(" ").append(v);
+			}
+			
+			
+		}
+		System.out.println(sb.toString());
+	}
+
+}

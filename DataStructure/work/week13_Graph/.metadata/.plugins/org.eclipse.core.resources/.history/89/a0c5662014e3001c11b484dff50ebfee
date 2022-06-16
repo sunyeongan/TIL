@@ -1,0 +1,63 @@
+package Graph;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class AdjListGraph_2 {
+	
+private LinkedList<Integer>[] adjList;
+	
+	private int a, b;
+	
+	public AdjListGraph_2(int N) {
+		super();
+		adjList = new LinkedList[N];
+		
+		for(int i = 0; i < N+1; i++) {
+			adjList[i] = new LinkedList<>();
+		}
+		
+	}
+	
+	public void put (int index, int edge) {
+		
+		
+		adjList[index].add(edge);
+	}
+	
+	
+	private void buildGraph() {
+		
+		put(a,b);
+		
+	}
+	
+	public void printGraph() {
+		
+		
+		System.out.println("Graph (AdjList)");
+		
+		for(int i = 0; i < adjList.length-1; i++) {
+			
+			System.out.print("[" + i + "]");
+			
+			for(int j : adjList[i]) {
+				System.out.print(" => " + j);
+			}
+			
+			System.out.println();
+			
+		}
+		
+	}
+	
+	public List<Integer>[] getList(){
+		
+		return adjList;
+	}
+	
+	
+
+
+
+}
