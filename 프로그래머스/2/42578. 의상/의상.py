@@ -15,6 +15,13 @@ def solution(clothes):
     comb = 1
     for v in clo_dic.values():
         print(len(v))
-        comb *= (len(v) + 1)
+        comb *= (len(v) + 1) # +1하는 이유는 
+        # 테스트 1을 예시로 하면 
+        # yello_hat만 입음
+        # green_turban만 입음
+        # 둘다 안입음
+        # 이렇게 3가지의 경우의 수가 존재함. value안에 있는 것들을 안입을수도 있는 경우의 수 1을 추가해줘야함.
+        # 하지만 이 문제에서는 각 종류별로 최대 한가지 의상을 입어야하는데, 선글라스도 안끼고, headgear도 안입으면 
+        # 종류별로 아무 의상도 입지 않는 것이므로 1을 빼줘야함. 
     
     return comb-1
